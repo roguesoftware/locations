@@ -2,19 +2,35 @@ syntax = "proto3";
 
 package proto;
 
-// import "tla_story.proto";
+import "story.proto";
 
 option go_package = ".;proto";
 
 message LocationItem {
     string id = 1;
+
+    float longitude = 3;
+    float latitude = 4;
+    float distance = 5;
+    string distance_units = 6;
+    string address = 7;
+    string title = 8;
+
+    repeated StoryItem stories = 10;
+
+    string created = 13;
+    string updated = 14;
+    string deleted = 15;
 }
 
 message LocationRequest {
-    string name = 1;
-    // float longitude = 1;
-    // float latitude = 2;
-    // float radius = 3;
+    repeated string ids = 1;
+
+    string user_id = 3;
+
+    float longitude = 5;
+    float latitude = 6;
+    float radius = 7;
 }
 
 message LocationReply {
