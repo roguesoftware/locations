@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = ".;vote";
+
+message VoteItem {
+    string id = 1;
+
+    string user_id = 3;
+
+    string context = 5;
+    string context_id = 6;
+
+    string value = 8;
+
+    string created = 13;
+    string updated = 14;
+    string deleted = 15;
+}
+
+message VoteRequest {
+    string context_id = 1;
+    string user_id = 2;
+}
+
+message VoteReply {
+    repeated VoteItem votes = 1;
+
+    int32 count = 3;
+}
+
+service VoteService {
+    rpc GetVotes (VoteRequest) returns (VoteReply);
+}

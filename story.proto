@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = ".;story";
+
+message Author {
+    string id = 1;
+
+    string name = 3;
+}
+
+message StoryVotes {
+    int32 up = 1;
+    int32 down = 2;
+    int32 net = 3;
+}
+
+message StoryItem {
+    string id = 1;
+
+    string location_id = 3;
+
+    string title = 5;
+    string story = 6;
+
+    Author author = 8;
+    StoryVotes votes = 9;
+
+    string created = 13;
+    string updated = 14;
+    string deleted = 15;
+}
+
+message StoryRequest {
+    repeated string ids = 1;
+
+    repeated string location_ids = 3;
+
+    repeated string user_ids = 5;
+}
+
+message StoryReply {
+    repeated StoryItem stories = 1;
+
+    int32 count = 3;
+}
+
+service StoryService {
+    rpc GetStories (StoryRequest) returns (StoryReply);
+}
