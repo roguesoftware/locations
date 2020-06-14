@@ -18,7 +18,7 @@ message LocationRequest {
 }
 
 message LocationReply {
-    LocationItem message = 1;
+    repeated LocationItem locations = 1;
 }
 
 service LocationService {
