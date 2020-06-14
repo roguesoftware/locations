@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package proto;
 
-option go_package = ".;story";
+option go_package = ".;proto";
 
 message Author {
     string id = 1;

@@ -4,7 +4,7 @@ package proto;
 
 // import "tla_story.proto";
 
-option go_package = ".;location";
+option go_package = ".;proto";
 
 message LocationItem {
     string id = 1;
